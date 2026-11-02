@@ -3,273 +3,247 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
 <title>Документы Андрея Ивановича</title>
 <style>
-:root{--bg:#fbfaf7;--fg:#1d1d1f;--muted:#5f6368;--card:#ffffff;--line:#e3e1db;--accent:#1f5fa8;--warn-bg:#fff4d6;--warn-line:#e0b23c;--up:#c62828;--nav:#fbfaf7e8}
-@media (prefers-color-scheme:dark){:root{--bg:#141517;--fg:#e9e9ea;--muted:#a0a3a8;--card:#1d1f22;--line:#33363b;--accent:#7fb2ff;--warn-bg:#3a3018;--warn-line:#b58f2a;--up:#ff6b6b;--nav:#141517e8}}
+:root{--bg:#f7f6f3;--card:#fff;--text:#1f2328;--muted:#5f6670;--line:#e3e1dc;--accent:#2f5d8a;--warn:#9a5b00;--warn-bg:#fff6e5;--bad:#b42318;--ok:#1a7f37;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#16181b;--card:#1f2226;--text:#e8e6e3;--muted:#a0a6ad;--line:#33373c;--accent:#7fb0e0;--warn:#f0b65a;--warn-bg:#2d2616;--bad:#ff7b72;--ok:#56d364;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#16181b;--card:#1f2226;--text:#e8e6e3;--muted:#a0a6ad;--line:#33373c;--accent:#7fb0e0;--warn:#f0b65a;--warn-bg:#2d2616;--bad:#ff7b72;--ok:#56d364;color-scheme:dark}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
-nav{position:sticky;top:0;z-index:5;background:var(--nav);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav ul{list-style:none;margin:0 auto;padding:10px 16px;max-width:860px;display:flex;gap:6px 14px;overflow-x:auto;white-space:nowrap}
-nav a{color:var(--accent);text-decoration:none;font-size:15px}
-main{max-width:860px;margin:0 auto;padding:24px 16px 40px}
-h1{font-size:1.7rem;line-height:1.25;margin:.2em 0 .6em}
-h2{font-size:1.3rem;margin:2em 0 .6em;padding-top:.4em;border-top:1px solid var(--line)}
-h3{font-size:1.05rem;margin:1.4em 0 .4em}
-.meta p{margin:.2em 0}
-.note{background:var(--warn-bg);border-left:4px solid var(--warn-line);padding:12px 16px;border-radius:6px;margin:16px 0 8px}
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
-table{border-collapse:collapse;width:100%;font-size:15px}
-th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{background:color-mix(in srgb,var(--line) 45%,transparent);font-weight:600}
-tr:last-child td{border-bottom:0}
-.up{color:var(--up);font-weight:600;white-space:nowrap}
-ol,ul{padding-left:1.3em}
-li{margin:.25em 0}
-.docs-top{margin:18px 0 6px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
-.docs-top h2{margin:0 0 10px;padding:0;border:0;font-size:1.15rem}
-.btns{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
-.btn{display:flex;align-items:center;gap:10px;min-height:52px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);text-decoration:none;font-size:16px;line-height:1.25}
-.btn b{font-weight:600}.btn small{color:var(--muted);display:block;font-size:13px}
-.btn.main{background:var(--accent);border-color:var(--accent);color:var(--bg)}.btn.main small{color:inherit;opacity:.8}
-.btn .ic{flex:none;font-size:22px}
-.gal-group h3{margin:1.2em 0 .5em}
-.gal-group h3 a{font-size:14px;font-weight:400;margin-left:8px;color:var(--accent)}
-.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:8px}
-.gal button{padding:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card);cursor:zoom-in;aspect-ratio:3/4}
-.gal img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-#lb{position:fixed;inset:0;z-index:20;background:#000;display:none;flex-direction:column}
-#lb.on{display:flex}
-#lb .bar{display:flex;align-items:center;gap:8px;padding:8px 10px;color:#fff;font-size:14px;padding-top:max(8px,env(safe-area-inset-top))}
-#lb .bar span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#lb .bar a,#lb .bar button{color:#fff;background:#ffffff22;border:0;border-radius:8px;min-width:44px;height:44px;padding:0 12px;font-size:16px;text-decoration:none;display:flex;align-items:center;justify-content:center}
-#lb .view{flex:1;overflow:auto;touch-action:pan-x pan-y pinch-zoom;display:flex}
-#lb .view img{margin:auto;max-width:100%;max-height:100%;object-fit:contain;background:#fff}
-#lb.zoom .view img{max-width:none;max-height:none;width:200%}
-#lb .nav{display:flex;gap:8px;padding:8px 10px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
-#lb .nav button{flex:1;height:48px;border:0;border-radius:10px;background:#ffffff22;color:#fff;font-size:18px}
-footer{max-width:860px;margin:0 auto;padding:20px 16px 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--card)}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--card);border-bottom:1px solid var(--line)}
+.wrap{max-width:900px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header .wrap{padding-top:28px;padding-bottom:18px}
+h1{font-size:1.7rem;margin:0 0 6px}
+h2{font-size:1.3rem;margin:0 0 12px}
+h3{font-size:1.05rem;margin:18px 0 8px}
+.meta{color:var(--muted);font-size:.95rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--line);z-index:2}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:6px;padding-bottom:6px}
+nav a{white-space:nowrap;color:var(--accent);text-decoration:none;padding:6px 10px;border-radius:6px;font-size:.92rem}
+nav a:hover{background:var(--bg)}
+main .wrap{padding-top:20px;padding-bottom:60px}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin:0 0 18px;scroll-margin-top:60px}
+.note{background:var(--warn-bg);border:1px solid var(--warn);color:var(--text);border-radius:10px;padding:14px 16px;margin:0 0 18px}
+.note strong{color:var(--warn)}
+ol,ul{padding-left:1.3em;margin:8px 0}
+li{margin:4px 0}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600}
+.hi{color:var(--bad);font-weight:600}
+.ok{color:var(--ok)}
+.miss{color:var(--bad);font-weight:600}
+.tag{display:inline-block;font-size:.78rem;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-left:6px;vertical-align:middle}
+.key li{margin:8px 0}
+footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 16px 40px}
+@media print{nav{display:none}section{break-inside:avoid;border:none;padding:8px 0}body{background:#fff}}
 </style>
 </head>
 <body>
-<nav><ul>
-<li><a href="#main">Главное</a></li>
-<li><a href="#todo">Что сделать</a></li>
-<li><a href="#timeline">Хронология</a></li>
-<li><a href="#dx">Диагнозы</a></li>
-<li><a href="#exams">Обследования</a></li>
-<li><a href="#rx">Лечение</a></li>
-<li><a href="#labs">Анализы</a></li>
-<li><a href="#questions">Вопросы врачам</a></li>
-<li><a href="#pdf"><b>Сканы PDF</b></a></li>
-<li><a href="#gallery"><b>Фото страниц</b></a></li>
-<li><a href="#docs">Документы</a></li>
-</ul></nav>
-<main>
-<h1>Медицинские документы: Кузьмин Андрей Иванович</h1>
-<div class="note">Это сводка, чтобы было проще ориентироваться в бумагах. <strong>Это не заключение врача.</strong> Все решения о лечении принимают врачи, а вопросы лучше записать и задать им.</div>
-<div class="meta">
-<p><strong>Пациент:</strong> Кузьмин Андрей Иванович, 12.05.1963 (63 года)</p>
-<p><strong>Учреждение:</strong> СПб ГБУЗ «Городская многопрофильная больница № 2», Учебный пер., д. 5</p>
-<p><strong>Госпитализация:</strong> 12.10–29.10.2026: сначала гастроэнтерология (карта 107574-26-С), затем неврология (карта 114018-26-С)</p>
-</div>
+<header><div class="wrap">
+<h1>Кузьмин Андрей Иванович</h1>
+<div class="meta">12.05.1963 (63 года) · СПб ГБУЗ «Городская многопрофильная больница № 2», Учебный пер., д. 5<br>
+Госпитализация 12.10–29.10.2026: гастроэнтерология (карта 107574-26-С), затем неврология (карта 114018-26-С)<br>
+Сводка составлена 30.10.2026, обновлена 02.11.2026 по новым чётким фото: все страницы на месте</div>
+</div></header>
+<nav><div class="wrap">
+<a href="#main">Главное</a><a href="#todo">Что сделать</a><a href="#timeline">Хронология</a><a href="#dx">Диагнозы</a><a href="#exams">Обследования</a><a href="#meds">Лечение</a><a href="#labs">Анализы</a><a href="#questions">Вопросы врачам</a><a href="#docs">Документы</a>
+</div></nav>
+<main><div class="wrap">
 
-<section class="docs-top" id="pdf">
-<h2>Сканы документов</h2>
-<div class="btns">
-<a class="btn main" href="pdf/00-vse-dokumenty.pdf"><span class="ic">📄</span><span><b>Все документы одним PDF</b><small>16 МБ</small></span></a>
-<a class="btn" href="#gallery"><span class="ic">🖼️</span><span><b>Смотреть как картинки</b><small>31 страница, удобно с телефона</small></span></a>
-<a class="btn" href="pdf/04-vypiska-nevrologiya-29.10.pdf"><span class="ic">📄</span><span><b>Выписка из неврологии</b><small>29.10 · 3 МБ</small></span></a>
-<a class="btn" href="pdf/03-vypiska-gastroenterologiya-26.10.pdf"><span class="ic">📄</span><span><b>Выписка из гастроэнтерологии</b><small>26.10 · 5,7 МБ</small></span></a>
-<a class="btn" href="pdf/02-obsledovaniya-MRT-FGDS-EKG.pdf"><span class="ic">📄</span><span><b>Обследования: МРТ, ФГДС, ЭКГ</b><small>1,5 МБ</small></span></a>
-<a class="btn" href="pdf/01-analizy-16.09-27.10.pdf"><span class="ic">📄</span><span><b>Анализы</b><small>16.09–27.10 · 5,7 МБ</small></span></a>
-<a class="btn" href="pdf/05-bolnichnyy-list.pdf"><span class="ic">📄</span><span><b>Больничный лист</b><small>0,5 МБ</small></span></a>
-</div>
+<div class="note"><strong>Предварительная сводка, не заключение врача.</strong> Здесь пересказано то, что написано в выписках и протоколах, простыми словами. Диагнозы ставят и лечение назначают врачи. Если что-то здесь расходится с документом, верить документу.</div>
+
+<section id="main">
+<h2>Коротко о главном <span class="tag">предварительно</span></h2>
+<ol class="key">
+<li><b>По документам, рвота связана прежде всего с неврологией, а не только с желудком.</b> Госпитализировали с обострением хронического панкреатита, но МРТ головного мозга 26.10 указало на связь рвоты и шаткости с давней опухолью слухового нерва (вестибулярной шванномой, по природе доброкачественной) и её последствиями.</li>
+<li><b>МРТ 26.10, три важные находки:</b>
+<ul>
+<li>в зоне прошлой операции ткань, накапливающая контраст: «остаточная опухолевая ткань / продолженный рост»;</li>
+<li>внутренняя гидроцефалия (расширение желудочков мозга из-за нарушенного оттока жидкости);</li>
+<li>участок в верхнем шейном отделе спинного мозга (C1–C2), «наиболее вероятно, очаг ишемии» (нарушение кровоснабжения).</li>
+</ul></li>
+<li><b>Нейрохирург 28.10:</b> экстренная операция сейчас не нужна. Рекомендованы МРТ шейного отдела с контрастом и плановая консультация нейрохирурга в РНХИ им. Поленова.</li>
+<li><b>Последняя страница неврологической выписки (нашлась 02.11):</b>
+<ul>
+<li>«Также имеется <b>подозрение на глиоматоз</b> шейного отдела спинного мозга, ствола мозга. Дифф. диагноз с паразитарной кистой». Врачи не исключают опухолевую природу изменений; окончательно это не установлено.</li>
+<li>Консультация нейрохирурга в РНХИ <b>«для решения вопроса об оперативном лечении»</b>.</li>
+<li>Новые лекарства: <b>Диакарб, Панангин, Лозартан (Лориста)</b>, см. «Лечение».</li>
+</ul></li>
+<li><b>Выписан 29.10 с улучшением</b>, состояние удовлетворительное. Обслуживает себя сам, ходит, память и мышление в порядке. Сохраняется шаткость; <b>при повороте головы вправо может упасть.</b></li>
+<li><b>Больничный</b> с 26.10 по 30.10.2026, явка в поликлинику 30.10.2026.</li>
+</ol>
 </section>
 
-<h2 id="main">Коротко о главном (предварительно)</h2>
+<section id="todo">
+<h2>Что сделать</h2>
 <ol>
-<li>Главная причина рвоты, по документам, неврологическая, а не только желудочная. Положили с обострением хронического панкреатита. Но МРТ головного мозга 26.10 показало, что рвота и шаткость, скорее всего, связаны с давней опухолью слухового нерва (вестибулярной шванномой) и её последствиями. Шваннома по своей природе доброкачественная.</li>
-<li>На МРТ 26.10 нашли три важные вещи: (а) в области прошлой операции есть ткань, которая накапливает контраст, это может быть остаток опухоли или её продолженный рост; (б) внутренняя гидроцефалия, то есть расширение желудочков мозга из-за нарушенного оттока жидкости; (в) участок в верхнем шейном отделе спинного мозга (C1–C2), который рентгенолог считает наиболее вероятно очагом ишемии, то есть нарушения кровоснабжения.</li>
-<li>Нейрохирург 28.10: экстренная операция сейчас не нужна. Рекомендовано МРТ шейного отдела с контрастом и плановая консультация нейрохирурга в РНХИ им. Поленова, где оперировали раньше.</li>
-<li>Выписан 29.10 с улучшением, состояние удовлетворительное. Сам себя обслуживает, ходит, мышление и память в порядке. Но есть шаткость, и при повороте головы вправо может упасть.</li>
-<li>Больничный продлён, явка на приём 30.10.2026.</li>
+<li>Записаться на <b>МРТ шейного отдела позвоночника с контрастом</b>.</li>
+<li>Записаться на <b>консультацию нейрохирурга в РНХИ им. Поленова</b>, взять все МРТ (диски, если есть) и выписки.</li>
+<li>Начать лекарства из неврологической выписки (Диакарб, Панангин, Лозартан) и уточнить у невролога, как контролировать калий и давление.</li>
+<li>Пока сохраняется шаткость, <b>беречь от падений</b>: убрать коврики, избегать резких поворотов головы вправо.</li>
 </ol>
+</section>
 
-<h2 id="todo">Что сделать</h2>
-<ol>
-<li>Найти и сфотографировать 5-ю страницу неврологической выписки (там рекомендации и лекарства при выписке).</li>
-<li>Записаться на МРТ шейного отдела с контрастом.</li>
-<li>Записаться на консультацию нейрохирурга в РНХИ им. Поленова, взять все МРТ (диски, если есть) и выписки.</li>
-<li>Пока шаткость сохраняется, беречь от падений: убрать коврики, помнить, что резкий поворот головы вправо опасен.</li>
-</ol>
-
-<h2 id="timeline">Хронология</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Когда</th><th>Что произошло</th></tr></thead>
-<tbody>
+<section id="timeline">
+<h2>Хронология</h2>
+<div class="tbl"><table>
+<tr><th>Когда</th><th>Что произошло</th></tr>
 <tr><td>2009</td><td>Желчнокаменная болезнь, удалён желчный пузырь</td></tr>
 <tr><td>2010</td><td>Стал хуже слышать левым ухом</td></tr>
-<tr><td>2013</td><td>Операция в РНХИ им. Поленова: удалена шваннома слухового нерва слева. После неё остались глухота слева, асимметрия лица и проблемы с левым глазом</td></tr>
+<tr><td>2013</td><td>Операция в РНХИ им. Поленова: удалена шваннома слухового нерва слева. После неё глухота слева, асимметрия лица, проблемы с левым глазом</td></tr>
 <tr><td>2017</td><td>Рецидив, лечение гамма-ножом (радиохирургия)</td></tr>
 <tr><td>2024</td><td>Повторный рецидив, повторная операция</td></tr>
 <tr><td>Январь 2026</td><td>Гастроэнтеролог: запоры, назначен Форлакс</td></tr>
 <tr><td>25.06.2026</td><td>МРТ: остаточная ткань, без изменений с 2025 г.</td></tr>
 <tr><td>Середина сентября</td><td>Начались приступы рвоты, сначала изредка</td></tr>
 <tr><td>16–17.09</td><td>Анализы крови и мочи в норме</td></tr>
-<tr><td>09.10</td><td>УЗИ живота, ФГДС, анализы: билирубин 59,8 (повышен)</td></tr>
-<tr><td>12.10</td><td>Утром многократная рвота с желчью. Госпитализация в гастроэнтерологию с обострением хронического панкреатита</td></tr>
+<tr><td>09.10</td><td>УЗИ живота, ФГДС, анализы: билирубин <span class="hi">59,8</span> (повышен)</td></tr>
+<tr><td><b>12.10</b></td><td>Многократная рвота с желчью. <b>Госпитализация в гастроэнтерологию</b> с обострением хронического панкреатита</td></tr>
 <tr><td>16.10</td><td>МРТ живота и МРХПГ</td></tr>
-<tr><td>21.10</td><td>Осмотр невролога: шаткость, головокружение. Назначено МРТ мозга</td></tr>
-<tr><td>26.10</td><td>МРТ головного мозга, в тот же день перевод в неврологию, первые сутки в палате интенсивной терапии (ПИТ)</td></tr>
+<tr><td>21.10</td><td>Невролог: шаткость, головокружение; назначено МРТ мозга</td></tr>
+<tr><td>23.10</td><td>ФГДС (гастроскопия)</td></tr>
+<tr><td><b>26.10</b></td><td><b>МРТ головного мозга</b>, в тот же день перевод в неврологию, первые сутки в палате интенсивной терапии</td></tr>
 <tr><td>27.10</td><td>Окулист, ЛФК, нейропсихолог, ЭКГ</td></tr>
-<tr><td>28.10</td><td>Нейрохирург и консилиум с профессором кафедры неврологии</td></tr>
-<tr><td>29.10</td><td>Выписка из неврологии с улучшением</td></tr>
+<tr><td>28.10</td><td><b>Нейрохирург и консилиум</b> с профессором кафедры неврологии</td></tr>
+<tr><td><b>29.10</b></td><td><b>Выписка</b> из неврологии с улучшением</td></tr>
 <tr><td>30.10</td><td>Явка на приём по больничному</td></tr>
-</tbody></table></div>
+</table></div>
+</section>
 
-<h2 id="dx">Диагнозы, как они записаны в документах</h2>
-<h3>Основной (по неврологической выписке)</h3>
+<section id="dx">
+<h2>Диагнозы, как они записаны в документах</h2>
+<h3>Основной (неврологическая выписка)</h3>
 <ul>
-<li>D33.1. Объёмное образование IV желудочка с синдромом гидроцефалии и эпизодами позиционной рвоты (рвота и головокружение при смене положения головы, симптом Брунса).</li>
-<li>Состояние после хирургического и радиохирургического лечения рецидивирующей шванномы VIII нерва слева (2013, 2017 гамма-нож, 2024).</li>
-<li>Нейрохирург дополнительно указал очаг сосудистой миелопатии в верхнешейном отделе спинного мозга. В гастро-выписке: «конкурирующий диагноз: G95.1, спинальный инсульт C1–C2».</li>
+<li><b>D33.1. Объёмное образование IV желудочка</b> с синдромом гидроцефалии и эпизодами позиционной рвоты (рвота и головокружение при смене положения головы, симптом Брунса).</li>
+<li>Состояние после хирургического и радиохирургического лечения <b>рецидивирующей шванномы VIII нерва слева</b> (2013, 2017 гамма-нож, 2024).</li>
+<li>Нейрохирург указал <b>очаг сосудистой миелопатии</b> в верхнешейном отделе спинного мозга. В гастро-выписке: «конкурирующий диагноз: G95.1, спинальный инсульт C1–C2».</li>
 </ul>
 <h3>Сопутствующие</h3>
 <ul>
-<li>K86.1. Хронический панкреатит (поступил с обострением).</li>
-<li>K91.5. Постхолецистэктомический синдром, дисфункция сфинктера Одди.</li>
-<li>K29.6. Хронический гастрит с забросом желчи в желудок (дуодено-гастральный рефлюкс), неэрозивный рефлюкс-эзофагит, признаки грыжи пищеводного отверстия диафрагмы.</li>
-<li>I11.9. Гипертоническая болезнь, атеросклероз аорты и её ветвей, атеросклероз сосудов мозга (I67.8).</li>
-<li>Глаза: справа гипертоническая ангиопатия сетчатки, искусственный хрусталик. Слева бельмо роговицы, частичное опущение века, выворот нижнего века, глаз не до конца закрывается (последствия пареза лицевого нерва), начальная катаракта.</li>
-<li>Варикоз вен ног, хронический геморрой, перелом правой ключицы в 2023 г.</li>
+<li><b>K86.1.</b> Хронический панкреатит (поступил с обострением).</li>
+<li><b>K91.5.</b> Постхолецистэктомический синдром, дисфункция сфинктера Одди.</li>
+<li><b>K29.6.</b> Хронический гастрит с забросом желчи в желудок, неэрозивный рефлюкс-эзофагит, признаки грыжи пищеводного отверстия диафрагмы.</li>
+<li><b>I11.9.</b> Гипертоническая болезнь; атеросклероз аорты и её ветвей, сосудов мозга (I67.8).</li>
+<li><b>Глаза:</b> справа гипертоническая ангиопатия сетчатки, искусственный хрусталик. Слева бельмо роговицы, частичное опущение века, выворот нижнего века, глаз не до конца закрывается (последствие пареза лицевого нерва), начальная катаракта.</li>
+<li>Варикоз вен ног, хронический геморрой, перелом правой ключицы (2023).</li>
 </ul>
+</section>
 
-<h2 id="exams">Обследования</h2>
-<h3>МРТ головного мозга с контрастом (26.10), ключевое</h3>
+<section id="exams">
+<h2>Обследования</h2>
+<h3>МРТ головного мозга с контрастом, 26.10 (ключевое)</h3>
 <ul>
 <li>Шейный отдел спинного мозга на уровне C1–C2 утолщён, в правой половине участок около 33×12 мм: «наиболее вероятно, очаг ишемии спинного мозга».</li>
-<li>Внутренняя гидроцефалия (индекс Эванса 0,32). Вероятная причина: нарушен отток спинномозговой жидкости из-за утолщения спинного мозга.</li>
+<li>Внутренняя гидроцефалия (индекс Эванса 0,32); вероятная причина, по описанию, нарушение оттока жидкости из-за утолщения спинного мозга.</li>
 <li>В зоне прошлой операции слева мягкотканое образование, накапливающее контраст: «остаточная опухолевая ткань / продолженный рост».</li>
 <li>Арахноидальная киста задней черепной ямки слева (64×25 мм), киста правой гайморовой пазухи.</li>
-<li>Рекомендация рентгенолога: невролог и нейрохирург в неотложном порядке (сделано 26–28.10).</li>
+<li>Рекомендация рентгенолога: невролог и нейрохирург в неотложном порядке (выполнено 26–28.10).</li>
 </ul>
-<p><strong>МРТ живота и МРХПГ (16.10):</strong> желчный пузырь удалён. Протоки не расширены, камней нет. Поджелудочная с диффузными изменениями (участки жировой перестройки). Печень и селезёнка в норме.</p>
-<p><strong>ФГДС:</strong> рефлюкс-эзофагит, признаки грыжи пищеводного отверстия, катаральный гастродуоденит, много желчи в желудке. В шейном отделе пищевода «inlet patch», врождённый островок желудочной слизистой, обычно безобидный.</p>
-<p><strong>УЗИ живота (09.10):</strong> диффузные изменения печени и поджелудочной.</p>
-<p><strong>ЭКГ (27.10):</strong> синусовый ритм 61/мин. Межпредсердная блокада 1 ст., признаки утолщения стенки левого желудочка (часто при гипертонии).</p>
-<p><strong>Неврологический осмотр (27.10):</strong> сознание ясное, лёгкая нечёткость речи (дизартрия), слабость мимических мышц слева, глухота слева. Двусторонний симптом Бабинского. Неустойчив в позе Ромберга. Шкала Рэнкина 3 (умеренные ограничения, ходит сам). Индекс Бартела 100 (в быту самостоятелен). ЛФК: ходит сам, но при повороте головы вправо резко теряет равновесие, вплоть до падения. Нейропсихолог: нарушений памяти и мышления нет. Окулист: острой патологии нет, отёка диска зрительного нерва справа нет.</p>
+<h3>МРТ живота и МРХПГ, 16.10</h3>
+<p>Желчный пузырь удалён. Протоки не расширены, камней нет. Поджелудочная с диффузными изменениями (участки жировой перестройки). Печень и селезёнка в норме.</p>
+<h3>ФГДС (гастроскопия), 23.10</h3>
+<p>Рефлюкс-эзофагит, признаки грыжи пищеводного отверстия, катаральный гастродуоденит, много желчи в желудке. В шейном отделе пищевода «inlet patch», врождённый островок желудочной слизистой, обычно безобидный.</p>
+<h3>УЗИ живота, 09.10</h3>
+<p>Диффузные изменения печени и поджелудочной.</p>
+<h3>ЭКГ, 27.10</h3>
+<p>Синусовый ритм 61/мин. Межпредсердная блокада 1 ст., признаки утолщения стенки левого желудочка (часто бывает при гипертонии).</p>
+<h3>Неврологический осмотр и специалисты, 27.10</h3>
+<ul>
+<li>Сознание ясное, лёгкая нечёткость речи, слабость мимических мышц слева, глухота слева. Двусторонний симптом Бабинского. Неустойчив в позе Ромберга.</li>
+<li>Шкала Рэнкина 3 (умеренные ограничения, ходит сам), к выписке 2; индекс Бартела 100 (в быту полностью самостоятелен).</li>
+<li><b>ЛФК:</b> ходит сам, но при повороте головы вправо резко теряет равновесие, вплоть до падения.</li>
+<li><b>Нейропсихолог:</b> нарушений памяти и мышления нет.</li>
+<li><b>Окулист:</b> острой патологии нет, отёка диска зрительного нерва справа нет.</li>
+</ul>
+</section>
 
-<h2 id="rx">Лечение и назначения</h2>
-<h3>Из гастроэнтерологии (26.10)</h3>
-<div class="table-wrap"><table>
-<thead><tr><th>Препарат</th><th>Как</th><th>Сколько</th></tr></thead>
-<tbody>
-<tr><td>Дюспаталин 200 мг</td><td>2 р/д за 30 мин до еды</td><td>1 мес</td></tr>
-<tr><td>Разо 20 мг</td><td>1 р/д утром до завтрака</td><td>1 мес</td></tr>
-<tr><td>Микразим 25 000 ЕД</td><td>3 р/д во время еды</td><td>1 мес</td></tr>
-<tr><td>Лактулоза</td><td>15 мл 2 р/д, при ежедневном стуле уменьшать на 5–10 мл раз в 3 дня до своей дозы</td><td>6 мес</td></tr>
-</tbody></table></div>
-<p><strong>Режим:</strong> после еды 30 минут не ложиться; спать с поднятым изголовьем около 45 градусов или на подушке-клине; не носить тугие пояса, не наклоняться после еды; ужин за 2 часа до сна; не есть жирное, жареное, копчёное, маринованное, не пить газированное.</p>
-<p><strong>От невролога (21.10):</strong> Бетагистин 24 мг, 2 р/д, 2 месяца (от головокружения). Винпоцетин капельно, 5 раз (курс, видимо, проведён в больнице).</p>
-<p><strong>От окулиста (13.10):</strong> в левый глаз постоянно Корнерегель 3 р/д и искусственная слеза 4–6 р/д. Осмотр у окулиста не реже раза в год.</p>
-<p><strong>От нейрохирурга и неврологии (28–29.10):</strong> МРТ шейного отдела позвоночника с контрастом; плановая консультация нейрохирурга в РНХИ им. проф. А. Л. Поленова. Остальные рекомендации, скорее всего, на ненайденной 5-й странице неврологической выписки.</p>
+<section id="meds">
+<h2>Лечение и назначения</h2>
+<h3>Гастроэнтерология, 26.10</h3>
+<div class="tbl"><table>
+<tr><th>Препарат</th><th>Как</th><th>Сколько</th></tr>
+<tr><td><b>Дюспаталин</b> 200 мг</td><td>2 р/д за 30 мин до еды</td><td>1 мес</td></tr>
+<tr><td><b>Разо</b> 20 мг</td><td>1 р/д утром до завтрака</td><td>1 мес</td></tr>
+<tr><td><b>Микразим</b> 25 000 ЕД</td><td>3 р/д во время еды</td><td>1 мес</td></tr>
+<tr><td><b>Лактулоза</b></td><td>15 мл 2 р/д; при ежедневном стуле уменьшать на 5–10 мл раз в 3 дня до своей дозы</td><td>6 мес</td></tr>
+</table></div>
+<p><b>Режим:</b> после еды 30 минут не ложиться; спать с поднятым изголовьем (~45° или подушка-клин); без тугих поясов и наклонов после еды; ужин за 2 часа до сна; без жирного, жареного, копчёного, маринованного и газированного.</p>
+<h3>Невролог, 21.10</h3>
+<ul><li><b>Бетагистин</b> 24 мг, 2 р/д, 2 месяца (от головокружения).</li><li>Винпоцетин капельно, 5 раз (курс, видимо, проведён в больнице).</li></ul>
+<h3>Окулист, 13.10</h3>
+<ul><li>В <b>левый глаз постоянно:</b> Корнерегель 3 р/д и искусственная слеза 4–6 р/д.</li><li>Осмотр окулиста не реже раза в год.</li></ul>
+<h3>Нейрохирург и неврология, 28–29.10</h3>
+<p class="meta">По 5-й странице неврологической выписки, 29.10.2026</p>
+<div class="tbl"><table>
+<tr><th>Что</th><th>Как</th></tr>
+<tr><td><b>Диакарб</b> 250 мг</td><td>утром и вечером, под наблюдением невролога и нейрохирурга (уменьшает выработку спинномозговой жидкости, обычно при гидроцефалии)</td></tr>
+<tr><td><b>Панангин</b></td><td>по 1 таблетке 3 раза в день (калий и магний; Диакарб выводит калий)</td></tr>
+<tr><td><b>Лозартан (Лориста)</b> 25 мг</td><td>утром, длительно (от давления)</td></tr>
+</table></div>
+<ul><li>Явка в поликлинику 30.10.2026.</li><li><b>Консультация нейрохирурга в РНХИ им. проф. А. Л. Поленова</b> для решения вопроса об оперативном лечении.</li><li><b>МРТ шейного отдела позвоночника с контрастом</b>, амбулаторно.</li><li>Ежегодная диспансеризация.</li></ul>
+</section>
 
-<h2 id="labs">Анализы</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Показатель (норма)</th><th>16.09</th><th>09.10</th><th>13.10</th><th>26.10</th></tr></thead>
-<tbody>
-<tr><td>Билирубин общий (3,4–20,5)</td><td>—</td><td class="up">59,8 ↑</td><td class="up">40,3 ↑</td><td class="up">28,3 ↑</td></tr>
-<tr><td>АЛТ / АСТ</td><td>—</td><td>16 / 27</td><td>15 / <span class="up">41 ↑</span></td><td>11 / 18</td></tr>
-<tr><td>Лейкоциты (4–9)</td><td>6,89</td><td>7,39</td><td class="up">9,63 ↑</td><td class="up">9,15 ↑</td></tr>
-<tr><td>СРБ, мг/дл (0–0,5)</td><td>—</td><td>—</td><td class="up">0,62 ↑</td><td>0,06</td></tr>
+<section id="labs">
+<h2>Анализы</h2>
+<div class="tbl"><table>
+<tr><th>Показатель (норма)</th><th>16.09</th><th>09.10</th><th>13.10</th><th>26.10</th></tr>
+<tr><td>Билирубин общий (3,4–20,5)</td><td>—</td><td class="hi">59,8 ↑</td><td class="hi">40,3 ↑</td><td class="hi">28,3 ↑</td></tr>
+<tr><td>АЛТ / АСТ</td><td>—</td><td>16 / 27</td><td>15 / <span class="hi">41 ↑</span></td><td>11 / 18</td></tr>
+<tr><td>Лейкоциты (4–9)</td><td>6,89</td><td>7,39</td><td class="hi">9,63 ↑</td><td class="hi">9,15 ↑</td></tr>
+<tr><td>СРБ, мг/дл (0–0,5)</td><td>—</td><td>—</td><td class="hi">0,62 ↑</td><td>0,06</td></tr>
 <tr><td>Гемоглобин (130–160)</td><td>155</td><td>158</td><td>152</td><td>154</td></tr>
 <tr><td>Сахар (4,1–5,6)</td><td>4,66</td><td>4,9</td><td>5,25</td><td>5,6</td></tr>
 <tr><td>Креатинин</td><td>—</td><td>66</td><td>64</td><td>67,9</td></tr>
-</tbody></table></div>
+</table></div>
 <ul>
 <li>Билирубин за госпитализацию снизился вдвое, но ещё выше нормы.</li>
 <li>Печёночные ферменты, почки, кровь в целом в норме.</li>
-<li>«Хороший» холестерин (ЛПВП) 0,92, ниже нормы. Общий холестерин и ЛПНП в норме.</li>
+<li>«Хороший» холестерин (ЛПВП) 0,92, ниже нормы; общий холестерин и ЛПНП в норме.</li>
 <li>Свёртываемость в норме. Гепатиты B и C, сифилис не обнаружены. Анализы мочи в норме.</li>
 </ul>
+</section>
 
-<h2 id="questions">Вопросы врачам</h2>
+<section id="questions">
+<h2>Вопросы врачам</h2>
 <ol>
-<li>Насколько срочно нужны МРТ шеи и РНХИ? Есть ли признаки, при которых надо сразу вызывать скорую?</li>
-<li>Что лечить при очаге в спинном мозге: нужны ли препараты для сосудов, разжижение крови, контроль давления?</li>
-<li>Как наблюдать гидроцефалию и рост ткани в зоне операции?</li>
+<li>Насколько срочно нужны МРТ шеи и консультация в РНХИ? При каких признаках сразу вызывать скорую?</li>
+<li>Как лечить очаг в спинном мозге: нужны ли сосудистые препараты, разжижение крови, контроль давления?</li>
+<li>Как наблюдать гидроцефалию и ткань в зоне операции?</li>
 <li>Почему повышен билирубин и когда его пересдать?</li>
-<li>Какие лекарства продолжать после неврологии и не конфликтуют ли они с гастро-назначениями?</li>
+<li>Как сочетаются Диакарб, Панангин и Лозартан с гастро-назначениями? Как часто сдавать калий и мерить давление на Диакарбе?</li>
+<li>Что значит «подозрение на глиоматоз» и как его подтвердить или исключить? Хватит ли МРТ шеи?</li>
 </ol>
+</section>
 
-<h2 id="docs">Какие документы есть</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Документ</th><th>Страниц есть</th><th>Не хватает</th></tr></thead>
-<tbody>
-<tr><td>Выписка из неврологии (29.10), карта 114018-26-С</td><td>1–4 из 5</td><td>стр. 5: рекомендации при выписке</td></tr>
-<tr><td>Выписка из гастроэнтерологии (26.10), карта 107574-26-С</td><td>1–12 из 12</td><td>стр. 7 обрезана снизу, переснять</td></tr>
-<tr><td>Распечатка обследований (МРТ, ФГДС, ЭКГ)</td><td>1, 3, 4 из 5</td><td>стр. 2 и 5</td></tr>
-<tr><td>Бланки анализов (распечатаны 29.10)</td><td>8 листов подряд</td><td>разрывов нет</td></tr>
-<tr><td>Больничный лист (ЭЛН)</td><td>1</td><td>—</td></tr>
-</tbody></table></div>
-<h3>Сканы в PDF</h3>
+<section id="docs">
+<h2>Документы</h2>
+<div class="tbl"><table>
+<tr><th>Документ</th><th>Страниц</th></tr>
+<tr><td>Выписка из неврологии (29.10), карта 114018-26-С</td><td class="ok">5 из 5</td></tr>
+<tr><td>Выписка из гастроэнтерологии (26.10), карта 107574-26-С</td><td class="ok">12 из 12</td></tr>
+<tr><td>Распечатка обследований (МРТ живота и МРХПГ, ФГДС, МРТ мозга, ЭКГ)</td><td class="ok">5 из 5</td></tr>
+<tr><td>Бланки анализов (распечатаны 29.10, с печатью)</td><td class="ok">8 листов</td></tr>
+<tr><td>Больничный лист (ЭЛН № 910369943664)</td><td class="ok">1</td></tr>
+</table></div>
+<h3>Сканы по типам исследований (PDF)</h3>
+<p class="meta">Фотокопии листов, осветлены для читаемости, текст не менялся. Если на листе два исследования, он есть в PDF обоих.</p>
 <ul>
-<li><a href="pdf/00-vse-dokumenty.pdf">Все документы одним файлом</a> (16 МБ)</li>
-<li><a href="pdf/01-analizy-16.09-27.10.pdf">Анализы 16.09–27.10</a> (5,7 МБ)</li>
-<li><a href="pdf/02-obsledovaniya-MRT-FGDS-EKG.pdf">Обследования: МРТ, ФГДС, ЭКГ</a> (1,5 МБ)</li>
-<li><a href="pdf/03-vypiska-gastroenterologiya-26.10.pdf">Выписка из гастроэнтерологии, 26.10</a> (5,7 МБ)</li>
-<li><a href="pdf/04-vypiska-nevrologiya-29.10.pdf">Выписка из неврологии, 29.10</a> (3 МБ)</li>
-<li><a href="pdf/05-bolnichnyy-list.pdf">Больничный лист</a> (0,5 МБ)</li>
+<li><a href="pdf/00-vse-dokumenty.pdf" target="_blank">Все документы одним файлом</a> (31 стр., с закладками)</li>
+<li><a href="pdf/01-vypiska-nevrologiya-29.10.pdf" target="_blank">Выписка из неврологии, 29.10.2026</a> (5 стр.)</li>
+<li><a href="pdf/02-vypiska-gastroenterologiya-26.10.pdf" target="_blank">Выписка из гастроэнтерологии, 26.10.2026</a> (12 стр.)</li>
+<li><a href="pdf/03-MRT-golovnogo-mozga-26.10.pdf" target="_blank">МРТ головного мозга с контрастом, 26.10.2026</a> (2 стр.)</li>
+<li><a href="pdf/04-MRT-zhivota-MRHPG-16.10.pdf" target="_blank">МРТ живота и МРХПГ, 16.10.2026</a> (2 стр.)</li>
+<li><a href="pdf/05-FGDS-23.10.pdf" target="_blank">ФГДС (гастроскопия), 23.10.2026</a> (2 стр.)</li>
+<li><a href="pdf/06-EKG-27.10.pdf" target="_blank">ЭКГ, 27.10.2026</a> (2 стр.)</li>
+<li><a href="pdf/07-analizy-16.09-27.10.pdf" target="_blank">Анализы крови и мочи, 16.09–27.10.2026</a> (8 листов)</li>
+<li><a href="pdf/08-bolnichnyy-list.pdf" target="_blank">Листок нетрудоспособности (ЭЛН)</a> (1 стр.)</li>
 </ul>
+</section>
 
-<h2 id="gallery">Страницы документов</h2>
-<p>Нажмите на страницу, чтобы открыть её на весь экран. Листать можно свайпом или кнопками, увеличить двумя пальцами или кнопкой «＋».</p>
-<div id="gal-root"><p>Загрузка…</p></div>
-</main>
-<div id="lb" role="dialog" aria-modal="true" aria-label="Просмотр страницы">
-<div class="bar"><span id="lb-cap"></span><button id="lb-zoom" aria-label="Увеличить">＋</button><a id="lb-open" target="_blank" rel="noopener" aria-label="Открыть оригинал">↗</a><button id="lb-x" aria-label="Закрыть">✕</button></div>
-<div class="view" id="lb-view"><img id="lb-img" alt=""></div>
-<div class="nav"><button id="lb-prev" aria-label="Предыдущая">‹</button><button id="lb-next" aria-label="Следующая">›</button></div>
-</div>
-<script>
-(async()=>{
-const root=document.getElementById('gal-root'),lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),open=document.getElementById('lb-open'),view=document.getElementById('lb-view');
-let items=[],cur=0;
-try{
- const groups=await (await fetch('img/gallery.json')).json();
- root.innerHTML='';
- for(const g of groups){
-  const sec=document.createElement('div');sec.className='gal-group';
-  sec.innerHTML=`<h3>${g.title}<a href="${g.pdf}">PDF</a></h3>`;
-  const grid=document.createElement('div');grid.className='gal';
-  g.pages.forEach((p,i)=>{
-   const idx=items.length;items.push({src:p.full,cap:`${g.title} · стр. ${i+1} из ${g.pages.length}`});
-   const b=document.createElement('button');b.setAttribute('aria-label',items[idx].cap);
-   b.innerHTML=`<img src="${p.thumb}" loading="lazy" width="${Math.round(p.w/5)}" height="${Math.round(p.h/5)}" alt="">`;
-   b.onclick=()=>show(idx);grid.appendChild(b);
-  });
-  sec.appendChild(grid);root.appendChild(sec);
- }
-if(location.hash==='#gallery')document.getElementById('gallery').scrollIntoView();
-}catch(e){root.innerHTML='<p>Не удалось загрузить страницы. Откройте PDF выше.</p>'}
-function show(i){cur=(i+items.length)%items.length;const it=items[cur];img.src=it.src;cap.textContent=it.cap;open.href=it.src;lb.classList.remove('zoom');view.scrollTo(0,0);if(!lb.classList.contains('on')){lb.classList.add('on');document.body.style.overflow='hidden';history.pushState({lb:1},'')}
- [cur-1,cur+1].forEach(j=>{if(items[j])new Image().src=items[j].src})}
-function close(){if(lb.classList.contains('on')){lb.classList.remove('on');document.body.style.overflow=''}}
-document.getElementById('lb-x').onclick=()=>history.back();
-document.getElementById('lb-prev').onclick=()=>show(cur-1);
-document.getElementById('lb-next').onclick=()=>show(cur+1);
-document.getElementById('lb-zoom').onclick=()=>lb.classList.toggle('zoom');
-img.ondblclick=()=>lb.classList.toggle('zoom');
-addEventListener('popstate',close);
-addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')history.back();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
-let x0=null,y0=0;
-view.addEventListener('touchstart',e=>{x0=(e.touches.length===1&&!lb.classList.contains('zoom'))?e.touches[0].clientX:null;y0=e.touches[0].clientY},{passive:true});
-view.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))show(cur+(dx<0?1:-1));x0=null});
-})();
-</script>
-<footer>Сводка для семьи, составлена 30.10.2026. Не является медицинским заключением.</footer>
+</div></main>
+<footer>Сводка для семьи, составлена 30.10.2026, обновлена 02.11.2026. Не является медицинским заключением.</footer>
 </body>
 </html>
