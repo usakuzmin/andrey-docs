@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Документы Андрея Ивановича</title>
@@ -38,6 +39,24 @@ th{color:var(--muted);font-weight:600}
 .tag{display:inline-block;font-size:.78rem;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-left:6px;vertical-align:middle}
 .key li{margin:8px 0}
 footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 16px 40px}
+.gal-group h3 a{font-size:.85rem;font-weight:400;margin-left:8px;color:var(--accent)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+.gal button{padding:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff;cursor:zoom-in;aspect-ratio:3/4}
+.gal img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.btns{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:8px 0}
+.btn{display:block;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);text-decoration:none;line-height:1.3}
+.btn small{display:block;color:var(--muted);font-size:.82rem}
+.btn.main{background:var(--accent);border-color:var(--accent);color:var(--card)}.btn.main small{color:inherit;opacity:.85}
+#lb{position:fixed;inset:0;z-index:20;background:#000;display:none;flex-direction:column}
+#lb.on{display:flex}
+#lb .bar{display:flex;align-items:center;gap:8px;padding:8px 10px;color:#fff;font-size:14px;padding-top:max(8px,env(safe-area-inset-top))}
+#lb .bar span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#lb .bar a,#lb .bar button{color:#fff;background:#ffffff22;border:0;border-radius:8px;min-width:44px;height:44px;padding:0 12px;font-size:16px;text-decoration:none;display:flex;align-items:center;justify-content:center}
+#lb .view{flex:1;overflow:auto;touch-action:pan-x pan-y pinch-zoom;display:flex}
+#lb .view img{margin:auto;max-width:100%;max-height:100%;object-fit:contain;background:#fff}
+#lb.zoom .view img{max-width:none;max-height:none;width:200%}
+#lb .nav{display:flex;gap:8px;padding:8px 10px;padding-bottom:max(8px,env(safe-area-inset-bottom));position:static;border:0;background:none}
+#lb .nav button{flex:1;height:48px;border:0;border-radius:10px;background:#ffffff22;color:#fff;font-size:18px}
 @media print{nav{display:none}section{break-inside:avoid;border:none;padding:8px 0}body{background:#fff}}
 </style>
 </head>
@@ -49,7 +68,7 @@ footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 16px 4
 Сводка составлена 30.10.2026, обновлена 02.11.2026 по новым чётким фото: все страницы на месте</div>
 </div></header>
 <nav><div class="wrap">
-<a href="#main">Главное</a><a href="#todo">Что сделать</a><a href="#meds">Лечение</a><a href="#questions">Вопросы</a><a href="#docs">PDF</a>
+<a href="#main">Главное</a><a href="#todo">Что сделать</a><a href="#meds">Лечение</a><a href="#questions">Вопросы</a><a href="#docs">Документы</a>
 </div></nav>
 <main><div class="wrap">
 
@@ -228,22 +247,66 @@ footer{color:var(--muted);font-size:.85rem;text-align:center;padding:10px 16px 4
 <tr><td>Бланки анализов (распечатаны 29.10, с печатью)</td><td class="ok">8 листов</td></tr>
 <tr><td>Больничный лист (ЭЛН № 910369943664)</td><td class="ok">1</td></tr>
 </table></div>
-<h3>Сканы по типам исследований (PDF)</h3>
-<p class="meta">Фотокопии листов, осветлены для читаемости, текст не менялся. Если на листе два исследования, он есть в PDF обоих.</p>
-<ul>
-<li><a href="pdf/00-vse-dokumenty.pdf" target="_blank">Все документы одним файлом</a> (31 стр., с закладками)</li>
-<li><a href="pdf/01-vypiska-nevrologiya-29.10.pdf" target="_blank">Выписка из неврологии, 29.10.2026</a> (5 стр.)</li>
-<li><a href="pdf/02-vypiska-gastroenterologiya-26.10.pdf" target="_blank">Выписка из гастроэнтерологии, 26.10.2026</a> (12 стр.)</li>
-<li><a href="pdf/03-MRT-golovnogo-mozga-26.10.pdf" target="_blank">МРТ головного мозга с контрастом, 26.10.2026</a> (2 стр.)</li>
-<li><a href="pdf/04-MRT-zhivota-MRHPG-16.10.pdf" target="_blank">МРТ живота и МРХПГ, 16.10.2026</a> (2 стр.)</li>
-<li><a href="pdf/05-FGDS-23.10.pdf" target="_blank">ФГДС (гастроскопия), 23.10.2026</a> (2 стр.)</li>
-<li><a href="pdf/06-EKG-27.10.pdf" target="_blank">ЭКГ, 27.10.2026</a> (2 стр.)</li>
-<li><a href="pdf/07-analizy-16.09-27.10.pdf" target="_blank">Анализы крови и мочи, 16.09–27.10.2026</a> (8 листов)</li>
-<li><a href="pdf/08-bolnichnyy-list.pdf" target="_blank">Листок нетрудоспособности (ЭЛН)</a> (1 стр.)</li>
-</ul>
+<h3>PDF по типам исследований</h3>
+<div class="btns">
+<a class="btn main" href="pdf/00-vse-dokumenty.pdf" target="_blank">Все документы одним файлом<small>31 стр., с закладками</small></a>
+<a class="btn" href="pdf/01-vypiska-nevrologiya-29.10.pdf" target="_blank">Выписка из неврологии, 29.10.2026<small>5 стр.</small></a>
+<a class="btn" href="pdf/02-vypiska-gastroenterologiya-26.10.pdf" target="_blank">Выписка из гастроэнтерологии, 26.10.2026<small>12 стр.</small></a>
+<a class="btn" href="pdf/03-MRT-golovnogo-mozga-26.10.pdf" target="_blank">МРТ головного мозга с контрастом, 26.10.2026<small>2 стр.</small></a>
+<a class="btn" href="pdf/04-MRT-zhivota-MRHPG-16.10.pdf" target="_blank">МРТ живота и МРХПГ, 16.10.2026<small>2 стр.</small></a>
+<a class="btn" href="pdf/05-FGDS-23.10.pdf" target="_blank">ФГДС (гастроскопия), 23.10.2026<small>2 стр.</small></a>
+<a class="btn" href="pdf/06-EKG-27.10.pdf" target="_blank">ЭКГ, 27.10.2026<small>2 стр.</small></a>
+<a class="btn" href="pdf/07-analizy-16.09-27.10.pdf" target="_blank">Анализы крови и мочи, 16.09–27.10.2026<small>8 листов</small></a>
+<a class="btn" href="pdf/08-bolnichnyy-list.pdf" target="_blank">Листок нетрудоспособности (ЭЛН)<small>1 стр.</small></a>
+</div>
+<p class="meta">Если на листе два исследования, он есть в PDF обоих.</p>
+<h3 id="gallery">Фото страниц</h3>
+<p class="meta">Нажмите на страницу, чтобы открыть её на весь экран. Листать свайпом или кнопками, увеличить двумя пальцами или кнопкой «＋».</p>
+<div id="gal-root"><p>Загрузка…</p></div>
 </section>
 
 </div></main>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Просмотр страницы">
+<div class="bar"><span id="lb-cap"></span><button id="lb-zoom" aria-label="Увеличить">＋</button><a id="lb-open" target="_blank" rel="noopener" aria-label="Открыть оригинал">↗</a><button id="lb-x" aria-label="Закрыть">✕</button></div>
+<div class="view" id="lb-view"><img id="lb-img" alt=""></div>
+<div class="nav"><button id="lb-prev" aria-label="Предыдущая">‹</button><button id="lb-next" aria-label="Следующая">›</button></div>
+</div>
+<script>
+(async()=>{
+const root=document.getElementById('gal-root'),lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),open=document.getElementById('lb-open'),view=document.getElementById('lb-view');
+let items=[],cur=0;
+try{
+ const groups=await (await fetch('img/gallery.json')).json();
+ root.innerHTML='';
+ for(const g of groups){
+  const sec=document.createElement('div');sec.className='gal-group';
+  sec.innerHTML=`<h3>${g.title}<a href="${g.pdf}" target="_blank">PDF</a></h3>`;
+  const grid=document.createElement('div');grid.className='gal';
+  g.pages.forEach((p,i)=>{
+   const idx=items.length;items.push({src:p.full,cap:`${g.title} · стр. ${i+1} из ${g.pages.length}`});
+   const b=document.createElement('button');b.setAttribute('aria-label',items[idx].cap);
+   b.innerHTML=`<img src="${p.thumb}" loading="lazy" width="${Math.round(p.w/5)}" height="${Math.round(p.h/5)}" alt="">`;
+   b.onclick=()=>show(idx);grid.appendChild(b);
+  });
+  sec.appendChild(grid);root.appendChild(sec);
+ }
+if(location.hash==='#gallery')document.getElementById('gallery').scrollIntoView();
+}catch(e){root.innerHTML='<p>Не удалось загрузить страницы. Откройте PDF выше.</p>'}
+function show(i){cur=(i+items.length)%items.length;const it=items[cur];img.src=it.src;cap.textContent=it.cap;open.href=it.src;lb.classList.remove('zoom');view.scrollTo(0,0);if(!lb.classList.contains('on')){lb.classList.add('on');document.body.style.overflow='hidden';history.pushState({lb:1},'')}
+ [cur-1,cur+1].forEach(j=>{if(items[j])new Image().src=items[j].src})}
+function close(){if(lb.classList.contains('on')){lb.classList.remove('on');document.body.style.overflow=''}}
+document.getElementById('lb-x').onclick=()=>history.back();
+document.getElementById('lb-prev').onclick=()=>show(cur-1);
+document.getElementById('lb-next').onclick=()=>show(cur+1);
+document.getElementById('lb-zoom').onclick=()=>lb.classList.toggle('zoom');
+img.ondblclick=()=>lb.classList.toggle('zoom');
+addEventListener('popstate',close);
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')history.back();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+let x0=null,y0=0;
+view.addEventListener('touchstart',e=>{x0=(e.touches.length===1&&!lb.classList.contains('zoom'))?e.touches[0].clientX:null;y0=e.touches[0].clientY},{passive:true});
+view.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))show(cur+(dx<0?1:-1));x0=null});
+})();
+</script>
 <footer>Сводка для семьи, составлена 30.10.2026, обновлена 02.11.2026. Не является медицинским заключением.</footer>
 </body>
 </html>
