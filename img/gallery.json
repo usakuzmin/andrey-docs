@@ -1,5 +1,35 @@
 [
  {
+  "title": "Больница Св. Георгия, 04.11",
+  "pdf": "pdf/09-vypiska-sv-georgiy-04.11.pdf",
+  "pages": [
+   {
+    "full": "img/pg1.jpg",
+    "thumb": "img/pg1-t.jpg",
+    "w": 1159,
+    "h": 1600
+   },
+   {
+    "full": "img/pg2.jpg",
+    "thumb": "img/pg2-t.jpg",
+    "w": 1133,
+    "h": 1600
+   },
+   {
+    "full": "img/pg4.jpg",
+    "thumb": "img/pg4-t.jpg",
+    "w": 1154,
+    "h": 1600
+   },
+   {
+    "full": "img/pg3.jpg",
+    "thumb": "img/pg3-t.jpg",
+    "w": 1584,
+    "h": 1242
+   }
+  ]
+ },
+ {
   "title": "Выписка из неврологии, 29.10",
   "pdf": "pdf/01-vypiska-nevrologiya-29.10.pdf",
   "pages": [
